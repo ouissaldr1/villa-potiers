@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+        {# <link rel="stylesheet" href="../assets/styles/app.css"> #}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@400;800&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+       <!-- Link Swiper's CSS -->
+            <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+            />
+        
+        {# FullCalender Css #}
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+        
+        {# boxicon #}
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        
+        {# bootstrap #}
+        {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> #}
+        
+        {# alertify #}
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+
+        {# Select  #}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+      
+
+
+
+        {# Fontawesome Js #}
+         <script src="https://kit.fontawesome.com/84ea18e375.js" crossorigin="anonymous"></script>
+        
+        {# Swiper Js #}
+          <script src="{{asset('assets/swiper-bundle.min.js')}}"></script>
+
+        {# scroll Reveal #}
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        {# Alertify #}
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+        {# select  #}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+
+
+
+
+
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}
+        {% endblock %}
+         <!-- Swiper JS -->
+       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+        
+        {# FullCallender js #}
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js" integrity="sha256-sR+oJaZ3c0FHR6+kKaX1zeXReUGbzuNI8QTKpGHE0sg=" crossorigin="anonymous"></script>
+
+        {# bootstrap #}
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       
+        {# jquery #}
+        <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <nav>
+     {% block nav %}{% endblock %}
+    </nav>
+    <body>
+        {% block body %}{% endblock %}
+     {# start foooter 
+    {% set current_path = app.request.get('_route') %}
+
+
+
+
+    {% if (current_path != 'app_login_register') and (current_path !='admin_dashboardNew' and current_path !='home')  %}  
+
+    <div class="footer-wrapper">
+        <div class="content">
+            <div class="footer">
+             <div class="footer-grid">
+                <div id="grid1" class="grid-element">
+                    <a href="#">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f999c2b37ddfd786d7a255_logo-rental-webflow-ecommerce-website-template.svg" alt="">
+                     </a>
+                    <p>Lorem ipsum dolor sit amet consect adipiscing elit phasellus amet.</p>
+                    <div class="social-media">
+                        <a href="#">
+                                <i class="fa-brands fa-facebook-f"></i>                                                  
+                        </a>
+                          <a href="#">
+                                <i class="fa-brands fa-instagram"></i> 
+                                                                                
+                        </a>
+                         <a href="#">
+                                <i class="fa-brands fa-twitter"></i>                                                
+                        </a>
+                          <a href="#">
+                                <i class="fa-brands fa-youtube"></i>                                                
+                        </a>
+                    </div>
+                   
+                </div>
+                <div id="grid2" class="grid-element">
+                    <div class="footer-title">Pages</div>
+                    <div class="footer-pages">
+                     <ul class="list">
+                        <li class="footer-list-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-list-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="footer-list-item">
+                            <a href="#">Blog</a>
+                        </li>
+                        <li class="footer-list-item">
+                            <a href="#">Blog Post</a>
+                        </li>
+                        <li class="footer-list-item">
+                            <a href="#">Contact</a>
+                        </li>
+                     </ul>
+                        
+
+                     <ul class="list">
+                        <li class="footer-list-item">
+                            <a href="#">Rooms</a>
+                        </li>
+                        <li class="footer-list-item">
+                            <a href="#">Rooms Single</a>
+                        </li>
+                     </ul>
+                    </div>
+                
+                </div>
+
+                <div id="grid3" class="grid-element">
+                    <div class="footer-title">Utility pages</div>
+                    <ul class="list">
+                        <li class="footer-list-item">
+                            <a href="#">Start here</a>
+                        </li>  
+                        <li class="footer-list-item">
+                            <a href="#">Style guide</a>
+                        </li>   
+                        <li class="footer-list-item">
+                            <a href="#">404 Not found</a>
+                        </li><li class="footer-list-item">
+                            <a href="#">PAssword protected</a>
+                        </li><li class="footer-list-item">
+                            <a href="#">Licenses</a>
+                        </li>   <li class="footer-list-item">
+                            <a href="#">Changelog</a>
+                        </li>            
+                    </ul>
+                </div>
+
+                <div id="grid4" class="grid-element">
+
+                <div class="footer-title">Follow on Instagram</div>
+                <div class="layout-grid">
+                    <a  class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bb9a4f153c395996b4_instagram-footer-image-1-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                
+                    <a class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bd99cd1482459f5a18_instagram-footer-image-2-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a  class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bdf1a790368e70ba6a_instagram-footer-image-3-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bc4b2dee4295767ada_instagram-footer-image-4-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bdc1dfb22fd4ef26fa_instagram-footer-image-5-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a class="footer-images" href="#">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fae5bbdbd7a3ef87e031c8_instagram-footer-image-6-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    
+                
+                </div>
+
+                </div>
+             </div>
+            </div>
+        </div>
+    </div>
+
+     {% endif %}
+     #}
+    </body>
+</html>

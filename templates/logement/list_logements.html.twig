@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% block title %}Book Now{% endblock %}
+
+{% block body %}
+{{ include('header.html.twig') }}
+
+
+
+    {# start main #}
+    <div class="main list-log">
+       <div class="grid-3c list-log" id="list-log">
+           
+             {% for logement in logements %}
+                 <div class="slider-annonce">
+                      
+
+                        <a href="{{path('app_logement_details',{ id: logement.id }) }}" class="annonce ">
+                        <img src="https://assets.website-files.com/61f981dc0f719d7071d7826c/61fab42953ed1e5593e67f1e_single-rustic-cabin-thumbnail-image-rental-webflow-ecommerce-template.jpg" alt="" class="img-annonce">
+                        <div class="annonce-content">
+                            <h3>{{ logement.titre }}</h3>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            <div class="description">
+                                <div class="capacite">
+                                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d83848de613_guests-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                                    <div class="txt">{{logement.capacite}} Guests</div>
+                                </div>
+                                <div class="rooms">
+                                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d25b18de612_bedroom-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                                    <div class="txt">{{logement.chambre}} Bedroom</div>
+
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="box-price">
+                                <div class="price">
+                                    <div class="_prix">${{logement.prix}}</div>
+                                    <div class="night">/night</div>
+                                </div>
+                                <a href="{{path('app_logement_details',{ id: logement.id }) }}" class="btn-primary small">Book now</a>
+                            </div>
+                        </div>                        
+                        </a>
+                    
+
+                    </div>
+                     {% endfor %}
+       </div>
+    </div>
+
+
+{{ include('footer.html.twig') }}
+
+{% endblock %}
+

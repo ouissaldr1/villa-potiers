@@ -1,0 +1,102 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block body %}
+{% set current_path = app.request.get('_route') %}
+
+<div class="header">
+        <div class="content">
+            <a href="#" class="header-left">
+                <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f999c2b37ddfd786d7a255_logo-rental-webflow-ecommerce-website-template.svg" alt="">
+            </a>
+            <div class="header-right">
+                <button class="close none">&times;</button>
+                <button class="btn-toggler ">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+               </button>
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_default')}}">Home</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_blog')}}">Blog</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('contact_Us')}}">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cart-button">
+                    <a href="#" class="position-relative">
+                         <span class="position-absolute top-0 bottom-10 start-100 translate-middle badge rounded-pill bg-danger">
+                            2
+                           <span class="visually-hidden">unread messages</span>
+                        </span>
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f981dc0f719debb5d7839e_bag-icon-brix-templates.svg" alt="">
+                        
+                    </a>
+                    {% if (current_path == 'home') %}  
+                    <a href="{{ path('app_login_register') }}" class="btn-primary sign-register" id="sign-register">Logout</a>
+                    {% elseif (current_path == 'app_default') %}
+                    <a href="{{ path('app_login_register') }}" class="btn-primary sign-register" id="sign-register">Sign in / Register</a>
+                    {% elseif (current_path == 'app_blog') %}
+                    <a href="{{ path('app_login_register') }}" class="btn-primary sign-register" id="sign-register">Logout</a>
+                    {% elseif (current_path == 'app_logement_list') %}
+                     <a href="#list-log" class="btn-primary sign-register" id="sign-register">Book now</a>
+                    {% endif %}
+                </div>
+        </div>
+     </div>
+    </div>
+
+    {# header media query #}
+    <div class="header-media none">
+      <div class="hedear-nav-media">
+        <ul>
+                        <li class="header-nav-list-item">
+                            <ahref="{{path('app_default')}}">Home</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_blog')}}">Blog</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('contact_Us')}}">Contact</a>
+                        </li>
+                       <a href="{{ path('app_login_register') }}" class="btn-primary sign-register">Sign in / Register</a>
+
+        </ul>
+      </div>
+    </div>
+
+
+    {# start bg header's image #}
+    {% if (current_path == 'app_logement_list') %}
+    <div class="section-bg-img list-log">
+        <div class="section-bg-img-content">
+
+            <div class="text-content ">
+            
+             <h1 class="list-log" >Rooms</h1>
+             <p class="list-log">Non consectetur a erat nam at lectus urna duis convallis molestie nunc non blandit massa ut etiam sit amet nisl.</p>
+             <div class="two-buttons none">
+                <a href="" class="btn-primary" id="btnRevealLeft">Explore rooms</a>
+                <a href="" class="btn-secondary scroll">About us</a>
+             </div>
+    {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+   
+{% endblock %}

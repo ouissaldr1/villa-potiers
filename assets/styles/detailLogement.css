@@ -1,0 +1,380 @@
+/* ---------------------------------- start details logement ----------------------------------------*/
+
+.width_1268 {
+  max-width: 1268px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: 0 auto;
+  text-align: start !important;
+}
+.position {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 12%;
+  z-index: 1;
+}
+#section-bg-img {
+  padding-top: 260px;
+  padding-bottom: 318px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 4%,
+      rgba(0, 0, 0, 0.5) 64%,
+      #000
+    ),
+    url(https://assets.website-files.com/61f981dc0f719d7071d7826c/6201468b6703ff22faf2f510_single-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg);
+
+  background-position: 0px 0px, 40% 48%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+/* end header */
+
+/* start section main */
+
+.main-details {
+  padding-top: 80px;
+  padding-bottom: 150px;
+}
+.main-details-content {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 6fr 3.5fr;
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-auto-columns: 1fr;
+  grid-row-gap: 28px;
+}
+.logement-details {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.about {
+  margin-bottom: 32px;
+}
+.about h2,
+.gallery-title h2 {
+  margin-top: 0px;
+  color: var(--dark);
+  line-height: 1.316em;
+  font-weight: 700;
+}
+
+.about p {
+  margin-bottom: 32px;
+}
+.about ul {
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+.about ul li {
+  margin-bottom: 8px;
+  padding-left: 16px;
+}
+._64 {
+  margin: 64px 0;
+}
+
+.logement-info h2 {
+  margin-bottom: 56px;
+}
+
+.moreDetails {
+  max-width: 592px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 28px;
+  grid-row-gap: 50px;
+}
+
+.moreDetails .detail-log {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark);
+}
+.moreDetails .detail-log img {
+  margin-right: 16px;
+  display: inline-block;
+  max-width: 100%;
+}
+/* start box price */
+.price-detail {
+  border-radius: 24px 24px 24px 24px !important;
+  position: sticky;
+  top: 16px;
+  z-index: 3;
+  padding: 48px 48px;
+  margin-top: -400px;
+  align-self: flex-start;
+  -webkit-border-radius: 24px 24px 24px 24px !important;
+  -moz-border-radius: 24px 24px 24px 24px !important;
+  -ms-border-radius: 24px 24px 24px 24px !important;
+  -o-border-radius: 24px 24px 24px 24px !important;
+}
+.price-detail h2 {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1.417;
+  font-weight: 700;
+  color: var(--dark);
+}
+.price-detail p {
+  margin-bottom: 24px;
+}
+
+._32 {
+  margin-top: 32px;
+  margin-bottom: 42px;
+}
+
+.price-detail form div {
+  margin-bottom: 16px;
+  display: flex;
+}
+.location {
+  margin-right: 24px;
+}
+/* label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--dark);
+  font-weight: 700;
+} */
+
+/* .input {
+  min-height: 68px;
+  margin-bottom: 0px;
+  border: 1px solid var(--grey);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  background-color: var(--light);
+  box-shadow: 0 2px 12px 0 rgb(20 20 43 / 8%);
+  font-size: 16px;
+  line-height: 18px;
+  color: #8b8b8b;
+} */
+.reserver {
+  width: 100%;
+  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  border: none;
+  color: var(--light);
+  background-color: var(--dark);
+  /* background-color: var(--login);
+  background: linear-gradient(to right, #ff4b2b, var(--login)) no-repeat 0 0 /
+    cover; */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.logement-gallery {
+  padding-top: 100px;
+}
+.gallery-title {
+  display: flex;
+  padding-bottom: 50px;
+  padding-right: 20px;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 28px;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  padding-bottom: 40px;
+}
+
+.logement-gallery .grid img {
+  border-radius: 24px !important;
+  -webkit-border-radius: 24px !important;
+  -moz-border-radius: 24px !important;
+  -ms-border-radius: 24px !important;
+  -o-border-radius: 24px !important;
+}
+
+.nuits {
+  width: 211px;
+  color: #8b8b8b;
+  margin-bottom: 20px;
+  border: 1px solid var(--dark2);
+  border-radius: 24px;
+  padding: 20px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  background-color: var(--light);
+}
+
+/***********-----------------header-------------------*/
+.fade-sign-in {
+  display: none;
+}
+/************-------------------------------media query 991px ------------------------------------------------*/
+@media screen and (max-width: 991px) {
+  /********************header*******************/
+  @keyframes rotateAngle {
+    0% {
+      transform: rotate(-0deg);
+    }
+
+    100% {
+      transform: rotate(-45deg) translateY(10px);
+    }
+  }
+  @keyframes rotateAngleTwo {
+    0% {
+      transform: rotate(-0deg);
+    }
+
+    100% {
+      transform: rotate(45deg) translateY(-10px);
+    }
+  }
+
+  .icone-list {
+    float: left;
+    margin-right: 30px;
+    width: 44px;
+    padding-top: 17px;
+    cursor: pointer;
+    transition: transform 300ms ease, opacity 300ms ease,
+      -webkit-transform 300ms ease;
+  }
+
+  .icone-list:hover {
+    transform: scale3d(0.9, 0.9, 1.01);
+    opacity: 0.65;
+  }
+
+  .icone-list div {
+    height: 3px;
+    margin-bottom: 12px;
+    background-color: #000;
+  }
+
+  .one-animation {
+    animation: rotateAngle 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .two-animation {
+    animation: rotateAngleTwo 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  .header-right .nav-menu {
+    position: absolute;
+    top: 100px;
+    background-color: #fff;
+    left: 10px;
+    width: calc(100% - 60px);
+    padding: 30px 0px;
+    border-radius: 30px;
+    margin: 0 30px;
+  }
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: start;
+  }
+  .nav-menu ul li {
+    margin-bottom: 15px;
+  }
+  .header .content a:hover {
+    color: #ff3f3f;
+  }
+  .show {
+    display: block;
+  }
+
+  /*-----------------about---------------------*/
+  .price-detail {
+    margin-top: 0px;
+  }
+
+  .main-details-content {
+    grid-template-columns: 1fr;
+  }
+
+  .annonce {
+    max-width: 100%;
+  }
+
+  .about h2 {
+    font-size: 30px;
+  }
+  .about {
+    padding-right: 40px;
+  }
+}
+/************-------------------------------media query 767px ------------------------------------------------*/
+
+@media screen and (max-width: 767px) {
+  .sign-in {
+    display: none;
+  }
+  .fade-sign-in {
+    display: block;
+  }
+  .header .content a img {
+    max-width: 130px;
+  }
+  .about p,
+  .about ul li {
+    font-size: 16px;
+  }
+  .logement-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .about {
+    padding-right: 40px;
+  }
+  .moreDetails {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/*********---------------------------------------media query 479 px----------------------------*/
+@media screen and (max-width: 479px) {
+  .icone-list {
+    width: 28px;
+  }
+  .header .content a img {
+    max-width: 100px;
+  }
+  .btn-primary {
+    background-color: #ff3f3f !important;
+    padding-left: 24px;
+  }
+  .section-bg-img-content .text-content h1,
+  h1 {
+    font-size: 32px;
+  }
+  .section-bg-img-content .text-content p {
+    font-size: 16px;
+  }
+  .moreDetails {
+    grid-template-columns: 1fr;
+  }
+  .moreDetails .detail-log {
+    margin: 0 auto;
+  }
+}
+/* ---------------------------------- end details logement ----------------------------------------*/
+
+/* ---------------------------------- start etape logement page ----------------------------------------*/

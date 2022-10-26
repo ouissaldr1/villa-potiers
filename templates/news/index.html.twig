@@ -1,0 +1,40 @@
+{% extends 'admin/adminDashboard.html.twig' %}
+
+
+{% block title %}News index{% endblock %}
+
+{% block body %}
+    <h2>News</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <td>{{ news.id }}</td>
+                <td>{{ news.titre }}</td>
+                <td>{{ news.contenu }}</td>
+                <td>{{ news.date ? news.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_news_show', {'id': news.id}) }}">show</a>
+                    <a href="{{ path('app_news_edit', {'id': news.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_news_new') }}">Create new</a>
+{% endblock %}

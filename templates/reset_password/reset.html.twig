@@ -1,0 +1,75 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+{% block stylesheets %}
+         {{ encore_entry_link_tags('login') }}
+ {% endblock %} 
+
+{% block body %}
+<div class="body">
+<div class="Container" id="Container">
+    <div class="form-container sign-in-container">
+
+                  <h2>Reset password</h2>
+                  {{ form_start(resetForm) }}
+                
+                    {# first password #}
+                        <div class="form-group">
+                            <label class="label_sign" for="{{resetForm.plainPassword.children.first.vars.id}}">New Password</label>
+                            <input type="password" class="form-control" id="{{resetForm.plainPassword.children.first.vars.id}}" name="{{resetForm.plainPassword.children.first.vars.full_name}}" value ="{{resetForm.plainPassword.children.first.vars.value}}">
+                            {{form_errors(resetForm.plainPassword.children.first)}}
+                            {% do resetForm.plainPassword.children.first.setRendered %}
+                        </div>
+
+                        {# second password #}
+                        <div class="form-group">
+                            <label class="label_sign " for="{{resetForm.plainPassword.children.second.vars.id}}"> Confirm password</label>
+                            <input type="password" class="form-control" id="{{resetForm.plainPassword.children.second.vars.id}}" name="{{resetForm.plainPassword.children.second.vars.full_name}}" value ="{{resetForm.plainPassword.children.second.vars.value}}">
+                            {{form_errors(resetForm.plainPassword.children.second)}}
+                            {% do resetForm.plainPassword.children.second.setRendered %}
+
+
+                        </div>
+                        <br>
+                    <button class="btn btn-primary small btn_login" type="submit">
+                            Reset
+                    </button>
+                   {{ form_end(resetForm) }}
+
+    </div>
+
+           <div class="overlay-container">
+              <div class="overlay">
+            
+                  <div class="overlay-panel overlay-right">
+                      <h3 id="h1_login">Resset your Password</h3>
+                  </div>
+
+
+              </div>
+           </div>
+        
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <h1>Reset your password</h1>
+
+    {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="btn btn-primary">Reset password</button>
+    {{ form_end(resetForm) }}
+{% endblock %} #}

@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+{% block title %}Blogs{% endblock %}
+
+{% block stylesheets %}
+     {{ encore_entry_link_tags('news') }}
+{% endblock %}
+{% block body %}
+ {{ include('header.html.twig') }}
+
+   {# start main #}
+    <div class="main">
+      <div class="section-logment">
+        <div class="blogs" id="box-title">
+                <h1>Blogs</h1>
+                <a href="{{path('app_logement_list')}}" class="btn-secondary" id="mgBorder">Rooms</a>
+
+        </div>
+        {% for new in news %}
+        <div class="grid-blogs">
+           <div class="left">
+              <a class="news" id="{{new.id}}" >
+                <div class="gradient" ></div>
+                <img class="img" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/61fc2b4719d0a0e39fbc4884_wood-cabin-ideas-blog-thumbnail-image-rental-webflow-ecommerce-template.jpg" alt="">
+                <div class="info-news">
+                   <span class="date">{{ new.date|date('d-m-Y') }}</span>
+                   <h2 class="titre white" id="{{new.id}}">{{new.titre}}</h2>
+                </div>
+              </a>
+           </div>
+           <div class="right">
+             <a href="" class="news">
+                <div>
+                  <img class="img" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/61fc2ae31268b8dc9a92381a_airbnb-camping-experiences-blog-thumbnail-image-rental-webflow-ecommerce-template.jpg" alt="">
+                </div>
+                <div>
+                 <span class="date">{{ new.date|date('d-m-Y') }}</span>
+                 <h3 class="titre">{{new.titre}}</h3>
+                 <button class="btn-secondary">Details</button>
+                 </div>
+             </a>
+             
+           </div>
+        </div>
+        {% endfor %}
+      
+      </div>     
+    </div>
+
+ {{ include('footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('news') }}
+{% endblock %}

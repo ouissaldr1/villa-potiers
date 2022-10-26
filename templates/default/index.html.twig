@@ -1,0 +1,305 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello DefaultController!{% endblock %}
+{# {% block javascripts %}    
+   <script src="/assets/swiper-bundle.js"></script>
+{% endblock %} #}
+
+
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{% set current_path = app.request.get('_route') %}
+<div>
+  {# start header #}
+
+    <div class="header">
+        <div class="content">
+        <div>
+            <a href="#" class="header-left">
+
+                    <img src="{{ asset('images/rentel.png')}}" alt="">
+                {# <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f999c2b37ddfd786d7a255_logo-rental-webflow-ecommerce-website-template.svg" alt=""> #}
+            </a>
+            <h2>Villa Poitiers</h2>
+</div>
+            <div class="header-right">
+                <button class="close none">&times;</button>
+                <button class="btn-toggler ">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+               </button>
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_default')}}">Home</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_blog')}}">Blog</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('contact_Us')}}">Contact</a>
+                        </li>
+                        {% if is_granted('ROLE_ADMIN') %} 
+                        <li class="header-nav-list-item">
+                          <a href="{{path('admin_dashboardNew')}}" class="index_dashboard"  >Dashboard</a>
+                        </li>
+                        {% endif %}
+                        
+                        
+                    </ul>
+                </nav>
+                <div class="cart-button">
+                    <a href="#" class="position-relative">
+                         <span class="position-absolute top-0 bottom-10 start-100 translate-middle badge rounded-pill bg-danger">
+                           2
+                           <span class="visually-hidden">unread messages</span>
+                        </span>
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f981dc0f719debb5d7839e_bag-icon-brix-templates.svg" alt="">
+                        
+                    </a>
+                    
+                    {% if (current_path == 'home') %}  
+                    <a href="{{ path('app_logout') }}" class="btn-primary sign-register" id="sign-register">Logout</a>
+
+                    {% elseif (current_path == 'app_default') %}
+                    <a href="{{ path('app_login_register') }}" class="btn-primary sign-register" id="sign-register">Sign in / Register</a>
+                    {% endif %}
+                </div>
+        </div>
+     </div>
+    </div>
+
+
+    {# header media query #}
+    <div class="header-media none">
+      <div class="hedear-nav-media">
+        <ul>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_default')}}">Home</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_blog')}}">Blog</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('contact_Us')}}">Contact</a>
+                        </li>
+                       <a href="{{ path('app_login_register') }}" class="btn-primary sign-register">Sign in / Register</a>
+
+        </ul>
+      </div>
+    </div>
+   {# start bg header's image #}
+    <div class="section-bg-img">
+        <div class="section-bg-img-content">
+
+            <div class="text-content">
+             <h1 >Recharge energies in our unique hotel</h1>
+             <p>Non consectetur a erat nam at lectus urna duis convallis molestie 
+             nunc non blandit massa ut etiam sit amet nisl purus in mollis nunc sed et magnis dis parturient.</p>
+             <div class="two-buttons">
+                <a href="{{path('app_logement_list')}}" class="btn-primary" id="btnRevealLeft">Explore rooms</a>
+                <a href="" class="btn-secondary scroll">About us</a>
+             </div>
+            </div>
+
+        </div>
+    </div>
+    
+    {# start main #}
+
+    <div class="main">
+      {# section-logement #}
+        <div class="section-logment">
+            <div id="box-title">
+                <h2>Explore our cabins</h2>
+                <a href="" class="btn-secondary" id="mgBorder">Browse all</a>
+
+            </div>
+
+            
+            {# <div class="slider-wrapper swiper"> #}
+              <div class="slider_container">
+                    <div class="container">
+                        <div class="swiper card_swiper">
+                            <div class="swiper-wrapper">
+
+                              {% for logement in logements %}
+                               <div class="swiper-slide">
+                                  <div class="slider-annonce">
+                                        <a href="{{path('app_logement_details',{ id: logement.id }) }}" class="annonce ">
+                                        <img src="https://assets.website-files.com/61f981dc0f719d7071d7826c/61fab42953ed1e5593e67f1e_single-rustic-cabin-thumbnail-image-rental-webflow-ecommerce-template.jpg" alt="" class="img-annonce">
+                                        <div class="annonce-content">
+                                            <h3>{{ logement.titre }}</h3>
+                                            <p>Lorem ipsum dolor sit amet</p>
+                                            <div class="description">
+                                                <div class="capacite">
+                                                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d83848de613_guests-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                                                    <div class="txt">{{logement.capacite}} Guests</div>
+                                                </div>
+                                                <div class="rooms">
+                                                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d25b18de612_bedroom-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                                                    <div class="txt">{{logement.chambre}} Bedroom</div>
+
+                                                </div>
+                                            </div>
+                                            <div class="divider"></div>
+                                            <div class="box-price">
+                                                <div class="price">
+                                                    <div class="_prix">${{logement.prix}}</div>
+                                                    <div class="night">/night</div>
+                                                </div>
+                                                <a href="{{path('app_logement_details',{ id: logement.id }) }}" class="btn-primary small">Book now</a>
+                                            </div>
+                                        </div>                        
+                                        </a>
+                                
+
+                                    </div>    
+                                </div>
+                               {% endfor %}
+
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+              </div>
+            {# end swiper #}
+
+        </div>
+
+        {# section experience #}
+        <div class="section-experience">
+            <div class="content">
+                <div class="text-content">
+                    <div class="title">
+                        <h2>Come and enjoy a one of a kind experience</h2>
+                    </div>
+                    <div class="details">
+                        <p->Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut minus vitae, non doloribus ea neque et provident.</p->
+                    </div>
+                </div>
+                <div class="grid-3c">
+                    <div class="grid-3c-item" id="item1">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div>                    
+                    </div>
+                    <div class="grid-3c-item" id="item2">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div> 
+                    </div>
+                    <div class="grid-3c-item" id="item3">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div>
+                    </div>
+                    <div class="grid-3c-item" id="item4">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div>
+                    </div>
+                    <div class="grid-3c-item" id="item5">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div>
+                    </div>
+                    <div class="grid-3c-item" id="item6">
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c4ced896159f3864_wood-fire-illustration-rental-webflow-ecommerce-template.png" alt="">
+
+                        <div>
+                            <h3>Wood Fire</h3>
+                            <p>Sagittis, facilisis mauris sed vitae habitant dolor sit.</p>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="two-buttons">
+                    <a href="#" class="btn-primary">More experience</a>
+                    <a href="#" class="btn-secondary">About us</a>
+                </div>
+            </div>
+        </div>
+
+        {# start section red div #}
+        <div class="red-div">
+          <div class="content">
+            <div class="card" id="red-container">
+                <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f9c99c5d416e42b1a746db_cta-pattern-1-rental-webflow-ecommerce-template.svg" alt="" class="img-card-1">
+                <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f9c99c5d416e42b1a746db_cta-pattern-1-rental-webflow-ecommerce-template.svg" alt="" class="img-card-2">
+                <div class="text-content">
+                    <h2>Revive your energies in your favorite destination</h2>
+                    <p>Find vacation rentals, cabins, unique homes and experiences in Toulouse.</p>
+                      <div class="two-buttons">
+                    <a href="{{path('app_logement_list')}}" class="btn-primary">Explore rooms</a>
+                    <a href="#" class="btn-secondary">About us</a>
+                </div>
+                    
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        {# start section different #}
+        <div class="section-different">
+            <div class="content">
+                <div class="layout-grid">
+                    <div class="layout-grid-left">
+                        <div class="grid1">
+                           
+                                <img class="img1" src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad0e253ed1e75a2e7abb2_what-makes-us-different-image-1-rental-webflow-ecommerce-template.jpg" alt="">
+                                <img class="img2"src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad0e2dc38ea85c6f23ab0_what-makes-us-different-image-3-rental-webflow-ecommerce-template-p-500.jpeg" alt="">
+                        </div>
+
+                        <div class="grid1">
+                            <img  class="img3" src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad0e1dbb1cc8ae31393bf_what-makes-us-different-image-2-rental-webflow-ecommerce-template.jpg" alt="">
+                            <img class="img4" src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad0e22cef8dc7b160390e_what-makes-us-different-image-4-rental-webflow-ecommerce-template.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="layout-grid-right">
+                        <h2 id="mg-b-16">What makes us different</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eligendi voluptatum harum. Mollitia, nobis obcaecati aspernatur voluptates optio exercitationem. Vitae dignissimos illum odio .</p>
+                        <div class="divider"></div>
+                        <p class="margin">Nisl suscipit adipiscing bibendum est et sollicitudin ac orci phasellus egestas tellus rutrum tristique nulla aliquet enim dsolor tortor parturient montes nascetur ridiculus mus mauris. In dictum non consectetur a erat nam.</p>
+                        <a href ="#" class="btn-secondary">About us</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    {{ include('footer.html.twig') }}
+
+</div>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Etape Logement!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('etapeReservation') }}
+{% endblock %}
+
+{% block body %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<div class="container">
+    <div class="card">
+        <div class="form">
+        
+           
+            <div class="left-side" id="left-side">
+                <div class="left-heading">
+                    <h3> Villa Poitiers</h3>
+                </div>
+                <div class="steps-content">
+                    <h3>Step <span class="step-number">1</span></h3>
+                    <p class="step-number-content active">Confirmer votre séléction</p>
+                    <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education life.</p>
+                    <p class="step-number-content d-none">Help companies get to know you better by telling then about your past experiences.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                </div>
+                <ul class="progress-bar">
+                    <li class="first active ">Votre Séléction</li>
+                    <li>Informations Personnelles</li>
+                    <li>Paiement</li>
+                </ul>
+                
+
+                
+            </div>
+            <div class="right-side">
+                
+             {{form_start(form)}}
+                <div class="main-reserver active">
+                    <div class="text">
+                        <h2>Votre séléction</h2>
+                        <p>Choisir une date, trouver votre déstination </p>
+                    </div>
+                    <div class="input-text">
+                        <div class="input-div">
+                            <label class="label_sign">Logement</label>
+                            <input type="text" required  id="logement" value="{{logement.titre}}">
+                            {# <input type="text" class="form-control" id="{{registrationForm.username.vars.id}}" name="{{form.username.vars.full_name}}" value ="{{logement.titre}}">
+                            {{form_errors(registrationForm.username)}}
+                            {% do registrationForm.username.setRendered %} #}
+                            
+                        </div>
+                        <div class="input-div"> 
+                            <label for="" class="label_sign">Prix</label>
+                            <input type="text" required value="$ {{logement.prix}}/night"> 
+                        </div>
+                    </div>
+                    
+                    <div class="input-text">
+                        <div class="input-div">
+                        <label for="" class="label_sign">Arrivé</label>
+                            <input class='arrive' type="text" placeholder="Selectionnez.."  id="{{form.dateDebut.vars.id}}" name="form.dateDebut.vars.full_name">
+                            {% do form.dateDebut.setRendered %}
+
+            
+                        </div>
+                        <div class="input-div"> 
+                            <label for="" class="label_sign">Départ</label>
+                            <input class='depart'  type="text"  placeholder="Selectionnez.."  id="{{form.dateFin.vars.id}}" name="form.dateFin.vars.full_name">
+                            {% do form.dateFin.setRendered %}
+                        </div>
+                    </div>
+
+                                
+                    
+                             <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary none" id='calendar-button' data-toggle="modal" data-target="#calendarModal">
+                            Launch demo modal
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                     
+                                <div class="modal-body" id="body-calendar">
+                                    <div class="calendar"></div>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" onclick="saveStepOne({{logement.id}})" class="btn fermer" data-dismiss="modal">Enregistrer</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            {# end modal calendar #}
+                    <div class="buttons">
+                        <button type='submit' class="next_button">Next Step</button>
+                    </div>
+                </div>
+                <div class="main-reserver">
+                    <div class="text">
+                        <h2>Info-perso</h2>
+                        {# <p>Inform companies about your education life.</p> #}
+                    </div>
+                    <div class="input-text">
+                        <div class="input-div">
+                            <input type="text" required require>
+                            <span>Nom</span>
+                        </div>
+                        <div class="input-div"> 
+                            <input type="text" required>
+                            <span>Prénom</span>
+                        </div>
+                    </div>
+                    <div class="input-text">
+                        <div class="input-div">
+                            <input type="text" required require>
+                            <span>Email</span>
+                        </div>
+                    </div>
+                    <div class="input-text">
+                        <div class="input-div">
+                            <input type="text">
+                            <span>Numéro téléphone</span>
+                        </div>
+                    </div>
+                    <div class="buttons button_space">
+                        <button class="back_button">Back</button>
+                        <button class="next_button">Next Step</button>
+                    </div>
+                </div>
+                <div class="main-reserver">
+                    <div class="text">
+                        <h2>Paiement</h2>
+                        
+                    </div>
+                    
+                    <div class="buttons button_space">
+                        <button class="back_button">Back</button>
+                        <button class="next_button">Next Step</button>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="main-reserver">
+                    <div class="text">
+                        <h2>User Photo</h2>
+                        <p>Upload your profile picture and share yourself.</p>
+                    </div>
+                    <div class="user_card">
+                        <span></span>
+                        <div class="circle">
+                            <span><img src="https://i.imgur.com/hnwphgM.jpg"></span>
+                            
+                        </div>
+                        <div class="socialMedia">
+                            <span><i class="fa fa-share-alt"></i></span>
+                            <span><i class="fa fa-heart"></i></span>
+                            
+                        </div>
+                        <div class="user_name">
+                            <h3>Peter Hawkins</h3>
+                            <div class="detail">
+                                <p><a href="#">Izmar,Turkey</a>Hiring</p>
+                                <p>17 last day . 94Apply</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons button_space">
+                        <button class="back_button">Back</button>
+                        <button class="submit_button">Submit</button>
+                    </div>
+                </div>
+                 <div class="main-reserver">
+                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                     
+                    <div class="text congrats">
+                        <h2>Congratulations!</h2>
+                        <p>Thanks Mr./Mrs. <span class="shown_name"></span> your information have been submitted successfully for the future reference we will contact you soon.</p>
+                    </div>
+                </div>
+                
+            
+              
+
+            
+             {{form_end(form)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('etapeReservation') }}
+{% endblock %}
+
+

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{path('users_crud')}}">Users
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_logement_list')}}">Logement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reservation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_annonce_index')}}">Annonce</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{{path('app_news_index')}}">News</a>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+<br>
+<h4 style="position:absolute;top:50%;left:35%;opacity:0.4">This is the admin dashboard</h4>
+
+{% endblock %}
+ {% block body %}{% endblock %}

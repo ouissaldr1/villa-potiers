@@ -1,0 +1,212 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Details Logement!{% endblock %}
+
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('detailLogement') }}
+{% endblock %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+  {# start header #}
+
+    <div class="header">
+        <div class="content">
+
+            <a href="#" class="header-left">
+                <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f999c2b37ddfd786d7a255_logo-rental-webflow-ecommerce-website-template.svg" alt="">
+            </a>
+            <div class="header-right">
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="header-nav-list-item">
+                            <a href="">Home</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('app_blog')}}">Blog</a>
+                        </li>
+                        <li class="header-nav-list-item">
+                            <a href="{{path('contact_Us')}}">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cart-button">
+                    <a href="#" class="position-relative">
+                         <span class="position-absolute top-0 bottom-10 start-100 translate-middle badge rounded-pill bg-danger">
+                           2
+                           <span class="visually-hidden">unread messages</span>
+                        </span>
+                        <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f981dc0f719debb5d7839e_bag-icon-brix-templates.svg" alt="">
+                        
+                    </a>
+                    <a href="{{ path('app_login_register') }}" class="btn-primary">Sign in / Resgister</a>
+                </div>
+        </div>
+     </div>
+    </div>
+   {# start bg header's image #}
+    <div id="section-bg-img">
+        <div class="section-bg-img-content">
+
+            <div class="text-content width_1268 position">
+             <h1 >{{logement.titre}}</h1>
+             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit etiam cras tellus sit tempor amet, nascetur quam ornare proin platea diam amet<p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-details">
+      <div class="width_1268">
+         <div class="main-details-content">
+            <div class="logement-info">
+              <div class="description logement-details">
+
+               <div class="capacite">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d83848de613_guests-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div class="txt">{{logement.capacite}} Guests</div>
+                </div>
+                <div class="rooms">
+                     <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fab8a0d4c69d25b18de612_bedroom-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                     <div class="txt">{{logement.chambre}} Bedroom</div>
+
+                 </div>
+                 <div class="salleBain">
+                     <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62014e735cdb9f1c66b6bf4e_bathroom-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                     <div class="txt">{{ logement.salleBain }} Bathroom</div>
+
+                 </div>
+                 {% if logement.jardin %}
+                 <div class="jardin">
+                                      <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62014e735cdb9f1c66b6bf4e_bathroom-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div class="txt">{{logement.jardin}} Jardin</div>
+                 </div>
+                  {% endif %}
+
+              </div>
+
+              <div class="about">
+                <h2>About the cabin</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laborum commodi aperiam accusantium excepturi, suscipit sit deserunt nam tenetur voluptatem veritatis alias quidem accusamus quod aliquid iure quasi iusto eos!</p>
+                <ul>
+                    <li>Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. </li>
+                    <li>Magna etiam tempor orci eu lobortis elementum nibh tellus molestie.</li>
+                    <li>Magna etiam tempor orci eu lobortis elementum nibh tellus molestie. </li>
+                    <li>Pellentesque elit eget gravida cum sociis natoque penatibus et magni. </li>
+                </ul>
+                    <p>Pulvinar mattis nunc sed blandit libero cursus turpis massa tincidunt dui ut tellus molestie nunc non blandit massa enim nec dui nunc netus et malesuada fames aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus scelerisque purus semper eget duis at tellus in mollis nunc sed id semper risus.</p>
+                    <p>Tempus quam pellentesque nec nam aliquam sem et tortor duis convallis convallis tellus id interdum sit amet nisl purus in mollis nulla facilisi morbi tempus iaculis urna id volutpat tincidunt vitae semper quis lectus nulla.</p>
+              </div>
+              <div class="divider _64"></div>
+              <h2 class="scroll-top">Room amenities</h2>
+              <div class="moreDetails">
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2d990750bcc38ff971_wifi-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>Wifi</div>
+                </a>
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2cb8a4c938844d1f64_heater-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>Heater</div>
+                </a>
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2caf8dfdcb8b07ced5_fireplace-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>Fire Place</div>
+                </a>
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2c9a5f098e08210f8f_tv-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>TV</div>
+                </a>
+
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2c4b1b7c777814019a_parking-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>Parking</div>
+                </a>
+                <a href="#" class="detail-log">
+                    <img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/62016d2c5b452ee8541bedba_full-kitchen-outline-icon-rental-webflow-ecommerce-template.svg" alt="">
+                    <div>Full Kitchen</div>
+                </a>
+              </div>
+
+            </div>
+            {# div-price-details #}
+            <div class=" annonce price-detail scroll-bottom" id="annonce">
+                <h2>Reservate room</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit etiam cras tellus sit.</p>
+                <p>From</p>
+                <div class="price">
+                                    <div class="_prix">${{logement.prix}}</div>
+                                    <div class="night">/night</div>
+               </div>
+
+               <div class="divider _32"></div>
+        
+
+               <a href="{{path('app_etape_reservation',{id:logement.id})}}"  class="btn-primary reserver">Book Now</a>
+               {# <form action="">
+                    <div>
+                      <div class="location">
+                        <label for="">Location</label>
+                        <div class="input">
+                            <select name="" id="">
+                                <option value="">Select location</option>
+                                <option value="">Revelstoke Mountain</option>
+                                <option value="">Umatilla National Forest</option>
+                            </select>
+                        </div>
+                        <label for="">Nights</label>
+                        <input type="text" class="input">
+
+                      </div>
+                    </div>
+               </form> #}
+
+            </div>
+
+           
+        </div>
+      </div>
+       
+    </div>
+
+    <div class="logement-gallery width_1268">
+                <div class="gallery-title">
+                    <h2 class="scroll-top">Room gallery</h2>
+                    <a href="#" class="btn-primary">Book room</a>
+                </div>
+                <div class="grid">
+                    <a href="">
+                        <img id="item1" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/62013e6be28a1f089f8f8f8e_room-gallery-image-1-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a href="">
+                        <img id="item2" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/62013e6ba5410fbd35018cb3_room-gallery-image-2-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a href="">
+                        <img id="item3" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/62013e6b18adc3d15dadce83_room-gallery-image-3-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                    <a href="">
+                        <img id="item4" src="https://assets.website-files.com/61f981dc0f719d7071d7826c/62013e6b6703ff7a89f28471_room-gallery-image-4-rental-webflow-ecommerce-template.jpg" alt="">
+                    </a>
+                </div>
+        </div>
+    
+</div>
+{{ include('footer.html.twig') }}
+
+
+{% endblock %}
+
+{% block javascripts %}
+ {{ encore_entry_script_tags('detailLogement') }}
+
+{% endblock %}

@@ -1,0 +1,730 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Admin dashboard!{% endblock %}
+
+
+{% block stylesheets %}
+     {{ encore_entry_link_tags('adminDashboard') }}
+{% endblock %}
+
+{% block body %}
+<div id="body" >
+<section id="sidebar">
+    <a href="#" class="brand">
+        <i class='bx bxs-smile mt-4'></i>
+        <span class="text">Espace Admin</span>
+    </a>
+    <ul class="side-menu top">
+
+        <li class="active" >
+            <a href="#">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">Tableau de Bord</span>
+            </a>
+        </li>
+        <li>
+            <a href="#reservation">
+                <i class='bx bxs-shopping-bags'></i>
+                <span class="text">Réservation</span>
+            </a>
+        </li>
+        <li>
+            <a href="#logement" >
+                <i class='bx bx-building-house'></i>
+                <span class="text">logement</span>
+            </a>
+        </li>
+        <li>
+            <a href="#utilisateur">
+                <i class='bx bx-group'></i>
+                <span class="text">Utilisateur</span>
+            </a>
+        </li>
+        <li>
+            <a href="#annonce">
+            <i class='bx bx-news'></i>
+                <span class="text">Annonces</span>
+            </a>
+        </li>
+         <li>
+            <a href="#news">
+                <i class='bx bx-receipt'></i>
+                <span class="text">Actualités</span>
+            </a>
+        </li>
+          <li>
+            <a href="#news">
+                <i class='bx bx-envelope'></i>
+                <span class="text">Messages</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a href="{{ path('home') }}">
+                <i class='bx bx-home'></i>
+                <span class="text">Accueil</span>
+            </a>
+        </li>
+        <li>
+        {% if app.user %}
+
+            <a  class="admin_logout" href="{{ path('app_logout') }}">
+                <i class='bx bx-door-open'></i>
+                <span class="text">Logout</span>
+            </a>
+
+        {% endif %}
+
+        </li>
+    </ul>
+</section>
+{# end sidebar #}
+{# Content #}
+
+<section id="admin_content">
+{# navbar #}
+    <nav>
+        <i class='bx bx-menu'></i>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn">
+              <i class='bx bx-search'></i>
+            </button>
+          </div>
+        </form>
+        
+        <a href="#" class="profile">
+          <div class="cordonne">
+            <p href="#" class="nav-link admin_name">Ouissal Derraz</p>
+            <span>Admin</span>
+          </div>
+            <img src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+        </a>
+        
+    </nav>
+{# end navbar #}
+
+{# start Main #}
+<main>
+    <div class="header-title">
+        <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Tableau de Bord</a>
+                </li>
+                <li>
+                    <i class='bx bx-chevron-right'></i>
+                </li>
+                <li>
+                    <a href="#" class="active">Accueil</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="box-info">
+        <li>
+            <i class='bx bxs-calendar-check'></i>
+            <span class="text">
+                <h3>1203</h3>
+                <p>Réservation</p>
+            </span>
+        </li>
+        <li>
+           <i class='bx bxs-group'></i>
+            <span class="text">
+                <h3>2890</h3>
+                <p>Visiteurs</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-dollar-circle'></i>
+            <span class="text">
+                <h3>$2457</h3>
+                <p>Total</p>
+            </span>
+        </li>
+    </ul>
+    <div class="table-data">
+        <div class="order" id="reservation">
+            <div class="head">
+                <h3>Réservations récentes</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                       <th>Utilisateur</th>
+                       <th>Date de réservation</th> 
+                       <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img  id="profile" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+                            <p>John Oghlo</p>
+                        </td>
+                        <td>01-02-2021</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img  id="profile" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+                            <p>John Oghlo</p>
+                        </td>
+                        <td>01-02-2021</td>
+                        <td><span class="status pending">en attente</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img  id="profile" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+                            <p>John Oghlo</p>
+                        </td>
+                        <td>01-02-2021</td>
+                        <td><span class="status process">terminé</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img  id="profile" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+                            <p>John Oghlo</p>
+                        </td>
+                        <td>01-02-2021</td>
+                        <td><span class="status process">terminé</span></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+        <div class="logement general" id="logement">
+            <div class="head" >
+                <h3>Logement</h3>
+                <i class="bx bx-plus"></i>
+            </div>
+       
+            <ul class="logement-list" >
+            {% for logement in logements|slice(0, 5) %}
+              {# popup to select Logement #}
+                        <!-- Button trigger modal -->
+                        <button type="button" id="select-popup" class="btn btn-primary none" data-toggle="modal" data-target="#select">
+                        Launch demo modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade " id="select" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 " id="form-group">
+                                        <label for="typeInput">Type</label>
+                                        <input type="text" class="form-control input_{{logement.id}}" id="typeInput"  disabled >
+                                        </div>
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="prixInput">Prix</label>
+                                        <input type="text" class="form-control" id="prixInput" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="form-group">
+                                        <label class="label" for="adresseInput">Addresse</label>
+                                        <input type="text" class="form-control" id="adresseInput" disabled>
+                                    </div>
+                                    <div class="form-group" id="form-group">
+                                        <label class="label" for="chambreInput">Chambre</label>
+                                        <input type="text" class="form-control" id="chambreInput" disabled>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="capaciteInput">Capacite</label>
+                                        <input type="text" class="form-control" id="capaciteInput" disabled>
+                                        </div>
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="salleBainInput">Salle de bain</label>
+                                        <input type="text" class="form-control" id="salleBainInput" disabled>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group col-md-3 jardin"  id="jardin" id="form-group">
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck" disabled>
+                                        <label class="form-check-label" for="gridCheck">
+                                        Jardin
+                                        </label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn fermer" data-dismiss="modal">Fermer</button>
+                                <button type="button" onclick="deleteLog('{{logement.id}}','fermer')" class ="btn supprimer" data-dismiss="modal">Supprimer</button>
+
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
+                        {# end PopUp select  #}
+                 {# popup to edit Logement #}
+                        <!-- Button trigger modal -->
+                        <button type="button" id="edit-popup_{{logement.id}}" class="btn btn-primary none" data-toggle="modal" data-target="#myModal_{{logement.id}}">
+                        Launch demo modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal_{{logement.id}}" tabindex="-1" role="dialog" aria-labelledby="titleEdit" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="titleEdit">{{logement.titre}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 " id="form-group">
+                                        <label for="typeEdit_{{logement.id}}">Type</label>
+                                        <input type="text" class="form-control" id="typeEdit_{{logement.id}}"  value="{{logement.type}}">
+                                        <span id="span_{{logement.id}}"></span>
+                                        </div>
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="prixEdit_{{logement.id}}">Prix</label>
+                                        <input type="text" class="form-control" id="prixEdit_{{logement.id}}" value="{{logement.prix}}" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="form-group">
+                                        <label class="label" for="adresseEdit_{{logement.id}}">Addresse</label>
+                                        <input type="text" class="form-control" id="adresseEdit_{{logement.id}}" value="{{logement.adresse}}" >
+                                    </div>
+                                    <div class="form-group" id="form-group">
+                                        <label class="label" for="chambreEdit_{{logement.id}}">Chambre</label>
+                                        <input type="text" class="form-control" id="chambreEdit_{{logement.id}}"  value="{{logement.chambre}}">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="capaciteEdit_{{logement.id}}">Capacite</label>
+                                        <input type="text" class="form-control" id="capaciteEdit_{{logement.id}}" value="{{logement.capacite}}">
+                                        </div>
+                                        <div class="form-group col-md-6" id="form-group">
+                                        <label for="salleBainEdit_{{logement.id}}">Salle de bain</label>
+                                        <input type="text" class="form-control" id="salleBainEdit_{{logement.id}}" value="{{logement.salleBain}}">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group col-md-3 jardin"  id="jardin" id="form-group">
+                                        <div class="form-check">
+                                        {% if logement.jardin %}
+                                         <input class="form-check-input jardin-edit" type="checkbox" id="gridCheck_{{logement.id}}" checked>
+                                        {% else %}
+                                          <input class="form-check-input jardin-edit" type="checkbox" id="gridCheck_{{logement.id}}">
+                                        {% endif %}
+                                        <label class="form-check-label" for="gridCheck_{{logement.id}}">
+                                        Jardin
+                                        </label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="enregistrer_{{logement.id}}" class ="btn fermer enregistrer " data-dismiss="modal">Enregistrer</button>
+                                <button type="button" class ="btn supprimer" data-dismiss="modal">Supprimer</button>
+
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    {# end PopUp Edit  logement#}
+
+                    {# popup to delete logement #}
+                        <!-- Button trigger modal -->
+                          <button type="button" id="delete-logement-popup_{{logement.id}}" class="btn btn-primary none" data-toggle="modal" data-target="#delete-logement_{{logement.id}}">
+                        
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="delete-logement_{{logement.id}}" tabindex="-1" role="dialog" aria-labelledby="titleEdit" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="titleEdit"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="form-edit-user">
+                                        <span>êtes vous sûr de supprimer ce logement ?</span>
+                                      
+                                       
+                                    </div>
+                                
+                                <div class="modal-footer">
+                                       <div class="form-row" id="ouiNon">
+                                          <button type="submit" class ="btn fermer enregistrer user" id="delete_{{logement.id}}" data-dismiss="modal" >Oui</button>
+                                          <button type="button" class="btn fermer" data-dismiss="modal">Non</button>
+                                        </div>
+                                    
+                                </div>
+                                  
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+                    {# end PopUp delte User  #}
+
+
+              <li class="completed itemTab" id="{{logement.id}}"   onclick="select('{{logement.type}}','{{logement.titre}}','{{logement.prix}}','{{logement.adresse}}','{{logement.chambre}}','{{logement.capacite}}','{{logement.salleBain}}','{{logement.jardin}}')"  >
+                <div id="self" >
+                   <p>{{logement.titre}}</p>
+                   <div class="icon-ajouter">
+                    <i id="trois_point"class='bx bx-dots-vertical-rounded'></i>
+                   </div>
+                </div>
+                <div class="itemTab edit_delete none " id="{{logement.id}}" >
+                 <a  onclick="editLogement('{{logement.id}}','{{logement.jardin}}')" id="edit"><i class='bx bx-edit-alt'></i> <span>Modifier</span></a>
+                 <a id="delete" onclick="deleteLog('{{logement.id}}')" href="#"><i class='bx bx-trash'></i><span>Supprimer</span></a>
+                </div>
+              
+
+              </li>
+
+              
+              {% endfor %}
+              
+            </ul>
+
+        </div>
+       
+
+           
+           
+        
+        
+     
+
+
+        
+
+        <div class="order utilisateur" id="utilisateur">
+            <div class="head">
+                <h3 >Listes des utilisateurs</h3>
+
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                       <th>Nom</th>
+                       <th>Email</th> 
+                       <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users|slice(0, 4) %}
+                    
+                    <tr class="ligne_user">
+                        <td>
+                            <img  id="profile" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png" alt="">
+                            <p>{{user.Username}}</p>
+                        </td>
+                        <td>{{ user.email }}</td>
+                        {% if "ROLE_ADMIN" in user.roles %}
+                         <td><span class="status role_admin">Admin</span></td>
+                        {% else %}    
+                         <td><span>User</span></td>
+                        {% endif %}
+                        <td id="td_edit_delete">
+                        <i  onclick="editUser('{{user.id}}','{{user.Username}}')" data-toggle="tooltip" data-placement="bottom" title="Modifier le rôle" class='bx bx-edit-alt'></i>
+                        <i onclick ="deleteUser('{{user.id}}')" class='bx bx-trash'>
+                        </td>
+                        
+
+
+                    </tr>
+                    
+                  {# popup to edit User #}
+                        <!-- Button trigger modal -->
+                        <button type="button" id="edit-user-popup_{{user.id}}" class="btn btn-primary none" data-toggle="modal" data-target="#edit-user_{{user.id}}">
+                        
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="edit-user_{{user.id}}" tabindex="-1" role="dialog" aria-labelledby="titleEdit" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="titleEdit">Modifier le rôle d'utilisateur</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit_user_AjaxForm">
+                                    <div class="form-edit-user">
+                                        
+                                        <label class="label_{{user.id}}"></label>
+                                         <select class="form-select" id="select_{{user.id}}" aria-label="Default select example" name="" id="">
+                                           {% if "ROLE_ADMIN" in user.roles %}
+                                            <option>Admin</option>
+                                            <option>Utilisateur</option>
+                                           {% else %}
+                                            <option>Utilisateur</option>
+                                            <option>Admin</option>
+                                           {% endif %}
+
+                                        </select>
+                                         
+                                       
+                                    </div>
+                                
+                                <div class="modal-footer">
+                                       <button id="ask_{{user.id}}" class="btn fermer ask" type="button" data-toggle="collapse" data-target="#collapseExample_{{user.id}}" aria-expanded="false" aria-controls="collapseExample_{{user.id}}">
+                                            Enregistrer
+                                        </button>
+                                 </form>
+                                    
+                                </div>
+                                  <div class="collapse" id="collapseExample_{{user.id}}">
+                                        <br>
+                                        <div class="card card-body">
+                                           <span>
+                                              êtes vous sûr de votre choix ? 
+                                           </span>
+                                         <div class="form-row" id="ouiNon">
+                                          <button type="submit" class ="btn fermer enregistrer user " data-dismiss="modal" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Oui</button>
+                                          <button type="button" class="btn fermer" data-dismiss="modal">Non</button>
+                                          </div>
+
+                                        </div>
+                                        </div>
+                           
+                            </div>
+
+                        </div>
+                        </div>
+                    {# end PopUp edit User  #}
+
+                     {# popup to delete User #}
+                        <!-- Button trigger modal -->
+                          <button type="button" id="delete-user-popup_{{user.id}}" class="btn btn-primary none" data-toggle="modal" data-target="#delete-user_{{user.id}}">
+                        
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="delete-user_{{user.id}}" tabindex="-1" role="dialog" aria-labelledby="titleEdit" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="titleEdit"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit_user_AjaxForm">
+                                    <div class="form-edit-user">
+                                        <span>êtes vous sûr de supprimer cet utilisateur ?</span>
+                                      
+                                       
+                                    </div>
+                                
+                                <div class="modal-footer">
+                                       <div class="form-row" id="ouiNon">
+                                          <button type="submit" class ="btn fermer enregistrer user" id="delete_{{user.id}}" data-dismiss="modal" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Oui</button>
+                                          <button type="button" class="btn fermer" data-dismiss="modal">Non</button>
+                                        </div>
+                                 </form>
+                                    
+                                </div>
+                                  
+                            </div>
+
+                        </div>
+                        </div>
+                    {# end PopUp delete User  #}
+
+                   
+                 {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+          {# afficher tout #}
+      {# <a href="#" class="afficher_tout user">
+      <span>Afficher tout</span>
+      </a> #}
+
+
+      {# list of news #}
+      <div class="order news" id="news">
+            <div class="head">
+                <h3 >Actualités</h3>
+
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                       <th>Titre</th>
+                       <th>Publié le</th> 
+                       <th>Contenu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for new in news|slice(0, 4) %}
+                  
+                    <tr>
+                        <td>
+                            {# {{new.titre|truncate(20, true) }} #}
+                            {{new.titre }}
+                        </td>
+                        <td>{{ new.date|date('d-m-Y') }}</td>
+                        <td>{{new.contenu}}</td>
+                        <td id="td_edit_delete">
+                            <i onclick ="editNews('{{new.id}}')" class='bx bx-edit-alt'></i>
+                            <i class='bx bx-trash'>
+                        </td>
+
+
+                    </tr>
+
+                    {# popup to edit News #}
+                        <!-- Button trigger modal -->
+                        <button type="button" id="edit-news-popup_{{new.id}}" class="btn btn-primary none" data-toggle="modal" data-target="#edit-news_{{new.id}}">
+                        
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="edit-news_{{new.id}}" tabindex="-1" role="dialog" aria-labelledby="titleEdit" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="titleEdit">Modifier</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group" id="form-group">
+                                        <label class="label" for="titreEdit_{{new.id}}">Titre</label>
+                                        <input type="text" class="form-control" id="titreEdit_{{new.id}}" value="{{new.titre}}" >
+                                    </div>
+                                    <div class="form-group" id="form-group">
+                                        <label class="label" for="contenuEdit_{{new.id}}">Contenu</label>
+                                        <input type="text" class="form-control" id="contenuEdit_{{new.id}}"  value="{{new.contenu}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                       <button id="enregistrer_{{new.id}}" class="btn fermer" type="button" data-dismiss="modal" >
+                                            Enregistrer
+                                        </button>
+                                 
+                                    
+                                </div>
+                                  
+                           
+                            </div>
+
+                        </div>
+                    </div>
+                    {# end PopUp edit News  #}
+                
+                 {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+ 
+        
+    </div>
+       {# ajouter Un logemnet  #}
+
+      <div class="addLog none">
+        <button class="close-addLog">&times;</button>
+        {{ form_start(form) }}
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(form) }}
+            </div>
+           <h3>Ajouter un logement</h3>
+           <div class="form-log-add">
+                <div class="form-log" id="mg">
+                            <i class='bx bxs-home-alt-2' ></i>
+                            <input type="text" class="form-control" id="{{form.titre.vars.id}}" name="{{form.titre.vars.full_name}}" value ="{{form.titre.vars.value}}" placeholder="Titre..">
+                            {% do form.titre.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-building-house'></i>
+                            <input type="text" class="form-control" id="{{form.type.vars.id}}" name="{{form.type.vars.full_name}}" value ="{{form.type.vars.value}}" placeholder="Type..">
+                            {% do form.type.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-dollar-circle'></i>
+                            <input type="text" class="form-control" id="{{form.prix.vars.id}}" name="{{form.prix.vars.full_name}}" value ="{{form.prix.vars.value}}" placeholder="Prix..">
+                            {% do form.prix.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-map'></i>
+                            <input type="text" class="form-control" id="{{form.adresse.vars.id}}" name="{{form.adresse.vars.full_name}}" value ="{{form.adresse.vars.value}}" placeholder="Adresse..">
+                            {% do form.adresse.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-bed'></i>
+                            <input type="text" class="form-control" id="{{form.chambre.vars.id}}" name="{{form.chambre.vars.full_name}}" value ="{{form.chambre.vars.value}}" placeholder="Chambre..">
+                            {% do form.chambre.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-group'></i>
+                            <input type="text" class="form-control" id="{{form.capacite.vars.id}}" name="{{form.capacite.vars.full_name}}" value ="{{form.capacite.vars.value}}" placeholder="Capacite..">
+                            {% do form.capacite.setRendered %}
+                </div>
+                <div class="form-log">
+                            <i class='bx bxs-bath'></i>
+                            <input type="text" class="form-control" id="{{form.sallebain.vars.id}}" name="{{form.sallebain.vars.full_name}}" value ="{{form.sallebain.vars.value}}" placeholder="Salle de bain..">
+                            {% do form.sallebain.setRendered %}
+                </div>
+                <div class="add_jardin">
+                    {{ form_row(form.jardin) }}
+                </div>
+            
+          
+       
+            
+           
+        <button type="submit" class="btn btn-primary small btn_login register">Ajouter</button>
+
+        {{ form_end(form) }}
+       </div>
+       </div>
+      <div class="overlay-addLog none"></div>
+
+      {# afficher tout #}
+      <a href="#" class="afficher_tout user">
+      <span>Afficher tout</span>
+      </a>
+
+
+
+
+
+
+
+</main>
+{# end Main #}
+{# end Content #}
+</section>
+</div>
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('adminDashboard') }}
+{% endblock %}

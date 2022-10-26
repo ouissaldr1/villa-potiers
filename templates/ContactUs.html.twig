@@ -1,0 +1,112 @@
+{% extends "base.html.twig" %}
+
+
+{% block stylesheets %}
+     {{ encore_entry_link_tags('contactUs') }}
+{% endblock %}
+
+{% block body %}
+    {# success message #}
+    {% if formContact.vars.valid  %}    
+    {% for message in app.flashes('successContact') %}
+   
+                <!-- Button trigger modal -->
+        <button type="button" id="modal_success"  class="btn btn-primary none" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button>
+
+        
+
+
+        <!-- Modal -->
+        <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                
+              <div class="modal-body">
+               <img id='img-sent'src="{{ asset('images/mailSent.png')}}" alt="img">
+               <div>
+                <p>
+                {{message}}
+                </p>
+                 <button type="button" class="btn fermer" data-dismiss="modal">OK</button>
+                 </div>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+    
+    {% endfor %}
+     {% endif %}
+
+    {# failed message #}
+     
+
+  
+     <section class="contact">
+        <div class="cont container">
+            <div class="contact-text">
+                <h2>Contact us</h2>
+                <img src="{{ asset('images/contact2.svg')}}" alt="img">
+                {% if not formContact.vars.valid %}
+              
+                <div class="alert alert-danger">
+                  Veuillez bien remplir le formulaire!
+                </div>
+              {% endif %}
+            </div>
+            <div class="contact-form">
+            {{form_start(formContact) }}
+                <div class="form">
+                    <label for="name">Name</label>
+                      <input type="text" class="form-control" id="{{formContact.username.vars.id}}" name="{{formContact.username.vars.full_name}}" value ="{{formContact.username.vars.value}}">
+                      {{form_errors(formContact.username)}}
+                      {% do formContact.username.setRendered %}
+
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="{{formContact.email.vars.id}}" name="{{formContact.email.vars.full_name}}" value ="{{formContact.email.vars.value}}">
+                      {{form_errors(formContact.email)}}
+                      {% do formContact.email.setRendered %}
+
+                    <label for="email">Phone</label>
+                    <input type="text" class="form-control" id="{{formContact.phone.vars.id}}" name="{{formContact.phone.vars.full_name}}" value ="{{formContact.phone.vars.value}}">
+                      {{form_errors(formContact.phone)}}
+                      {% do formContact.phone.setRendered %}
+
+                    <label for="message">Message</label>
+                    <textarea cols="10" rows="5" type="text"  id="{{formContact.message.vars.id}}" name="{{formContact.message.vars.full_name}}" value ="{{formContact.message.vars.value}}" placeholder="Write your message..." required></textarea>
+                      {{form_errors(formContact.message)}}
+                      {% do formContact.message.setRendered %}
+                    <button class="btn  btn-send" >Send</button>
+                    
+                </div>
+              {{ form_end(formContact) }}
+            </div>
+        </div>
+    </section>
+
+    {# {{form_start(formContact) }}
+      <div class="row">
+      {{ form_row(formContact.username) }}
+      </div>
+      <div class="row">
+      {{form_row(formContact.phone) }}
+      </div>
+      <div class="row">
+      {{form_row(formContact.email) }}
+      </div>
+      <div class="row">
+      {{ form_row(formContact.message) }}
+      </div>
+      <div class="form-group">
+      <button class="btn btn-primary">Send</button>
+      </div>
+    {{ form_end(formContact) }} #}
+
+
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('contactUs') }}
+{% endblock %}

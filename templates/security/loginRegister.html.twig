@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in and Register!{% endblock %}
+{% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+ {% endblock %}       
+{% block body %}
+<div class="body">
+<div class="Container" id="Container">
+
+<div class="form-container sign-up-container">
+
+  
+             <h1 id="h1_login">Create Account</h1>
+            <span  id="span_login">or use your email for registration</span>
+    
+        
+
+
+    {{ form_start(registrationForm) }}
+
+    
+                    {# {{ dump(registrationForm.plainPassword.children.second) }} #}
+
+        <div class="form-group">
+            <label class="label_sign " for="{{registrationForm.username.vars.id}}">Username</label>
+            <input type="text" class="form-control" id="{{registrationForm.username.vars.id}}" name="{{registrationForm.username.vars.full_name}}" value ="{{registrationForm.username.vars.value}}">
+            {{form_errors(registrationForm.username)}}
+            {% do registrationForm.username.setRendered %}
+
+        </div>
+        <div class="form-group">
+            <label class="label_sign " for="{{registrationForm.email.vars.id}}">Email</label>
+            <input type="email" class="form-control" id="{{registrationForm.email.vars.id}}" name="{{registrationForm.email.vars.full_name}}" value ="{{registrationForm.email.vars.value}}">
+            {{form_errors(registrationForm.email)}}
+            {% do registrationForm.email.setRendered %}
+
+        </div>
+        {# first password #}
+        <div class="form-group">
+            <label class="label_sign " for="{{registrationForm.plainPassword.children.first.vars.id}}">Password</label>
+            <input type="password" class="form-control" id="{{registrationForm.plainPassword.children.first.vars.id}}" name="{{registrationForm.plainPassword.children.first.vars.full_name}}" value ="{{registrationForm.plainPassword.children.first.vars.value}}">
+            {{form_errors(registrationForm.plainPassword.children.first)}}
+            {% do registrationForm.plainPassword.children.first.setRendered %}
+        </div>
+
+        {# second password #}
+        <div class="form-group">
+            <label class="label_sign " for="{{registrationForm.plainPassword.children.second.vars.id}}"> Confirm password</label>
+            <input type="password" class="form-control" id="{{registrationForm.plainPassword.children.second.vars.id}}" name="{{registrationForm.plainPassword.children.second.vars.full_name}}" value ="{{registrationForm.plainPassword.children.second.vars.value}}">
+            {{form_errors(registrationForm.plainPassword.children.second)}}
+            {% do registrationForm.plainPassword.children.second.setRendered %}
+
+
+        </div>
+        
+        
+            {# {{ form_row(registrationForm.username,{ 'attr': {'class': 'form-control','placeholder':'Username'} }) }}
+
+            {{ form_row(registrationForm.email,{ 'attr': {'class': 'form-control','placeholder':'Email'} }) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }} #}
+            {# {{ form_row(registrationForm.agreeTerms) }} #}
+
+            <button type="submit" class="btn btn-primary small btn_login register">Register</button>
+        {{ form_end(registrationForm) }}
+    </form> 
+
+</div> 
+  {# login #}
+    <div class="form-container sign-in-container">
+        <form  method="post">
+            <h1 id="h1_login">Sign In</h1>
+          <div class="social-container">
+            <a id="a_login" href="#" class="social">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a id="a_login" href="#" class="social">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+            <a id="a_login" href="#" class="social">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          
+            <hr />
+                     
+            
+            {% if error %}
+                <p class="danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            {% endif %}
+            <div class="form-group">
+                <label class="label_sign" for="inputEmail">Email</label>
+                <input   type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control  mb-3" autocomplete="email" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label class="label_sign" for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            </div>
+            <div class="flex-row">
+                <div  class="checkbox mb-3">
+                    <label >
+                        <input class="label_sign" type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                <div  class="forget_password" class="mb-3">
+                                <a href="{{ path('app_forgot_password_request') }}">Forget Password?</a>
+                </div>
+            </div>
+         <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+          >
+
+           
+            <button class="btn btn-primary small btn_login" type="submit">
+                Sign in
+            </button>
+
+        </form> 
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1 id="h1_login">Welcome Back!</h1>
+                <p id="p_login">To keep connected please login with your personal info</p>
+                <button class="ghost btn-primary small btn_login" id="signIn">Sign In</button>
+
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1 id="h1_login">Hello, friend</h1>
+                <p id="p_login">Enter your personal details and start jorney with us</p>
+                <button class="ghost btn-secondary small btn_login" id="signUp">Sign Up</button>
+       
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
+
+ {% block javascripts %}
+ {{ encore_entry_script_tags('login') }}
+ {% endblock %}
+    

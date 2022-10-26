@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block
+body %}
+<h1>Register</h1>
+
+{{ form_start(registrationForm, {'attr': {'id': 'sign-up-form'}}) }}
+
+<input
+  type="text"
+  class="form-control"
+  id="{{ registrationForm.username.vars.id }}"
+  name="{{ registrationForm.username.vars.full_name }}"
+  value="{{ registrationForm.username.vars.value }}"
+/>
+{{ form_errors(registrationForm.username) }}
+{% do registrationForm.username.setRendered %}
+<br />
+{# {{ form_row(registrationForm.email) }} #}
+<input
+  type="text"
+  class="form-control"
+  id="{{ registrationForm.email.vars.id }}"
+  name="{{ registrationForm.email.vars.full_name }}"
+  value="{{ registrationForm.email.vars.value }}"
+/>
+{{ form_errors(registrationForm.email) }}
+{% do registrationForm.email.setRendered %}
+{{
+  form_row(registrationForm.plainPassword, {
+    label: "Password"
+  })
+}}
+{# {{ form_row(registrationForm.agreeTerms) }} #}
+
+<button type="submit" class="btn btn-success" id="register">Register</button>
+{{ form_end(registrationForm) }}
+{% endblock %} {% block javascripts %}
+{{ encore_entry_script_tags("login") }}
+{% endblock %}

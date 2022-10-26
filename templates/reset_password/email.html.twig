@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+ {% endblock %} 
+
+{% block body %}
+
+<img src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61f999c2b37ddfd786d7a255_logo-rental-webflow-ecommerce-website-template.svg" alt="logo">
+<h2>Hi!</h2>
+<h4>To reset your password, please visit the following link</h4>
+<a href="https://127.0.0.1:8000/reset-password/reset/{{resetToken.token}}"><button class="btn btn-primary small btn_login">{{ url('app_reset_password', {token: resetToken.token}) }}</button></a> 
+<p>This link will expire in <span style="color:red">{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}</span>.</p>
+
+{% endblock %} 

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+{% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+ {% endblock %} 
+
+{% block body %}
+<div class="body">
+<div class="Container" id="Container">
+    <div class="form-container sign-in-container">
+
+                <div class="arrow-left"><a href="{{ path('app_login_register') }}"><i class='bx bx-chevron-left'></i></a></div>
+                    {% for flash_error in app.flashes('reset_password_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                    {% endfor %}
+                  <span>Enter the email address you used when you joined and we’ll send you instructions to reset your password.</span>
+                  <br>
+                  {{ form_start(requestForm) }}
+                
+                    <div class="form-group">
+                        <label for="{{requestForm.email.vars.id}}" class="label_sign">Email</label>
+                        <input  id="{{requestForm.email.vars.id}}" type="email" name="{{requestForm.email.vars.full_name}}"  class="form-control  mb-3"  value ="{{requestForm.email.vars.value}}" required>
+                        {% do requestForm.email.setRendered %}
+                    </div>
+                    <button class="btn btn-primary small btn_login" type="submit">
+                            Send
+                    </button>
+                   {{ form_end(requestForm) }}
+
+    </div>
+
+           <div class="overlay-container">
+              <div class="overlay">
+            
+                  <div class="overlay-panel overlay-right">
+                      <h3 id="h1_login">Resset your Password</h3>
+                  </div>
+
+
+              </div>
+           </div>
+        
+    </div>
+  </div>
+{% endblock %}
